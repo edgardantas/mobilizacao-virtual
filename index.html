@@ -1,11 +1,169 @@
 <html ng-app="mpu">
 	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Mobilização Virtual MPF</title>
 		<script src="/node_modules/angular/angular.js"></script>
+		<script src="/node_modules/angular/ui-bootstrap-0.13.0.js"></script>
+		<script src="/scripts/app.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<style>
+			div.blocoSenador {
+			  	
+  				margin-top: 30px;
+			}
+		</style>
+
 	</head>
 	<body>
-		<div ng-controller="mainController">
+		<div ng-controller="mainController"  class="container">
+			<div class="container theme-showcase" role="main">
+				<div class="jumbotron">
+        			<h1>APITAÇO VIRTUAL - Email aos Senadores</h1>
+        			<p>Preencha os campos abaixo e os emails para os senadores serão preparados</p>
+      			</div>
+				<div>
+					<div class="form-group">
+	    				<label for="inputServidorNome">Nome servidor</label>
+	    				<input  type="text" ng-model="servidor.nome" id="inputServidorNome" class="form-control" placeholder="Seu nome">
+	    			</div>
+					<div class="form-group">
+	    				<label for="inputServidorMatricula">Matrícula</label>
+	    				<input  type="text" ng-model="servidor.matricula" id="inputServidorMatricula" class="form-control" placeholder="Matrícula">
+	    			</div>
+	    			<div class="form-group">
+	    				<label for="inputServidorUnidade">Unidade</label>
+	    				<input  type="text" ng-model="servidor.unidade" id="inputServidorUnidade" class="form-control" placeholder="Unidade onde trabalha">
+	    			</div>
+	    			<div class="form-group">
+	    				<label for="inputServidorUnidade">Cidade/UF</label>
+	    				<input  type="text" ng-model="servidor.cidade" id="inputServidorUnidade" class="form-control" placeholder="Cidade / Estado">
+	    			</div>
+				</div>
 
+
+				<div ng-repeat="(chave, dados) in senadores" class="row blocoSenador">
+					<hr>
+
+					<div class="page-header">
+        				<h2><span><b>Email: </b></span><span ng-bind="dados.email"></span></h2>
+        				<h2><span><b>Assunto: </b></span><span> Apoio na votação do PL 41/2015 dos servidores do MPU </span></h2>
+      				</div>
+					<div >
+						<span>{{dados.tratamento}} da República <span style="font-weight: bold;" ng-bind="dados.nome"></span>,</span><br/><br/>
+						<span>O  <b>PLC 41/2015</b> dos servidores do <b>Ministério Público da União</b> já está pautado para votação no Plenário do Senado no dia <b>07/07/2015</b>.</span><br/><br/>
+						<span>Tenho conhecimento de que Vossa Excelência sempre admirou o papel que os servidores da instituição desempenham na defesa da sociedade.</span><br/><br/>
+						<span>Precisamos de apoio, pois <span style="color: red; font-weight: bold">são 9 anos de perdas inflacionárias.</span></span><br/><br/>
+						<span>Aqueles Senadores que se manifestarem favoravelmente em prol do PLC 41/2015 e votarem pela aprovação, no dia 07/07/2015, certamente terão a admiração de milhares de servidores e de seus familiares que estarão assistindo pela TV Senado.</span><br/><br/>
+						<style type="text/css">
+							td, table, th {
+								border: 1px solid #555555 !important;
+							}
+							hr {
+								border-top: 4px solid #444444;	
+							}
+							table {
+								  font-size: small;
+								  width: 400px !important;
+							}
+
+						</style>
+						<h4>Comparativo salário de Técnicos</h4>
+						<table class="table table-bordered" width="100%" style="width: 100%" >
+							
+							<thead>
+								<tr style="background-color: #dddddd;">
+									<th>Entidades </th>
+									<th>Remuneração Inicial</th>
+									<th>Remuneração Final</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="warning" >
+									<td><b>MPU</b></td>
+									<td><b>5.365,92</b></td>
+									<td><b>8.056,89</b></td>
+								</tr>
+								<tr >
+									<td>BACEN </td>
+									<td>11.628,32</td>
+									<td>16.396,97</td>
+								</tr>
+								<tr class="warning" >
+									<td>CVM/SUSEP</td>
+									<td>11.628,32</td>
+									<td>16.396,97</td>
+								</tr>
+								<tr >
+									<td>SENADO</td>
+									<td>16.019,35</td>
+									<td>19.179,98</td>
+								</tr>
+								<tr class="warning" >
+									<td>CAMARA</td>
+									<td>13.578,00</td>
+									<td>20.185,00</td>
+								</tr>
+								<tr >
+									<td>TCU</td>
+									<td>13.578,00</td>
+									<td>20.185,00</td>
+								</tr>
+							</tbody>
+						</table>
+						<br/>	
+						<h4>Comparativo salário de Analistas</h4>
+						<table class="table table-bordered" width="100%" style="width: 100%">
+							<thead>
+								<tr style="background-color: #dddddd;">
+									<th>Entidades </th>
+									<th>Remuneração Inicial</th>
+									<th>Remuneração Final</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="warning" >
+									<td><b>MPU</b></td>
+									<td><b>8.803,97</b></td>
+									<td><b>13.219,08</b></td>
+								</tr>
+								<tr >
+									<td>BACEN </td>
+									<td>15.007,68</td>
+									<td>21.397,52</td>
+								</tr>
+								<tr class="warning" >
+									<td>CVM/SUSEP</td>
+									<td>15.007,68</td>
+									<td>21.397,52</td>
+								</tr>
+								<tr >
+									<td>SENADO</td>
+									<td>21.353,52</td>
+									<td>24.002,20</td>
+								</tr>
+								<tr class="warning" >
+									<td>CAMARA</td>
+									<td>20.384,00</td>
+									<td>26.005,00</td>
+								</tr>
+								<tr >
+									<td>TCU</td>
+									<td>20.384,00</td>
+									<td>26.005,00</td>
+								</tr>
+							</tbody>
+						</table>
+						<br/>		
+
+						<p>Atenciosamente,</p><br/>
+						<span ng-bind="servidor.nome"></span><br/>
+						<span>Matrícula: </span><span ng-bind="servidor.matricula"></span><br/>
+						<span>Servidor da </span><span ng-bind="servidor.unidade"></span><br/>
+						<span ng-bind="servidor.cidade"></span><br/>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 
